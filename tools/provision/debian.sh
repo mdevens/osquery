@@ -79,6 +79,7 @@ function main_debian() {
   install_yara
   install_cppnetlib
   install_gflags
+  install_libaptpkg
   install_sleuthkit
   
   # Need headers and PC macros

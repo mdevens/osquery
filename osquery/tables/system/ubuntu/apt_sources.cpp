@@ -16,7 +16,7 @@
 
 #include <apt-pkg/init.h>
 #include <apt-pkg/cachefile.h>
-
+#include <stdio.h>
 #ifdef __DEBUG
 #define DEBUG
 #endif
@@ -81,7 +81,10 @@ QueryData genAptSrcs(QueryContext& context) {
   // Note: _config comes from apt-pkg/configuration.h
   //       _system comes from apt-pkg/pkgsystem.h
   pkgInitConfig(*_config);
-  pkgInitSystem(*_config, _system);
+  if (pkgInitSystem(*_config, _system) == false)
+  {
+      return results;
+  }
 
   pkgCacheFile cache_file;
   pkgCache* cache = cache_file.GetPkgCache();

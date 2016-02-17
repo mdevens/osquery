@@ -18,6 +18,8 @@ elseif(LINUX)
       "zlib1g"
       "libbz2-1.0"
       "libreadline6"
+      "libc6 (>=2.15)"
+      "libapt-pkg4.12"
     )
 
     # Improve catch-alls for debian or ubuntu.
